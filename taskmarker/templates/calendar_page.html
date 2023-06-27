@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='CSS/calendar_page.css')}}">
+{% endblock %}
+
+{% block title %}TaskMarker-Calendario{% endblock %}
+
+
+{% block body %}
+  <div id="welcome-header">
+    <h1>Bem-vindo {{current_user.name}}, aqui está sua agenda TaskMarker.</h1>
+    <a href="{{url_for(endpoint= 'login.logout')}}">&#129092; logout</a>
+  </div>
+  <div id="calendar-box">
+    <div id="calendar"></div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{url_for('static', filename='fullcalendar/dist/index.global.js')}}"></script>
+<script src="{{url_for('static', filename='js/calendar.js')}}"></script>
+{% endblock %}

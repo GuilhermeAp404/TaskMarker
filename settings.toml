@@ -1,0 +1,4 @@
+[default]
+TITLE="TaskMarker"
+SQLALCHEMY_DATABASE_URI= "sqlite:///../instance/app.db"
+SECRET_KEY = "ZW5jcnlwdC10eXBlNDA0"

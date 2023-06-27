@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='CSS/login_register.css')}}">
+{% endblock %}
+
+{% block title %}TaskMarker-Home{% endblock %}
+
+
+{% block body %}
+<div id='central-box'>
+    <div id="tab-nav">
+        <div class="options activate-option" id="login">Entrar</div>
+        <div class="options" id="register">Registrar</div>
+    </div>
+    <form id="login-form" action="{{url_for(endpoint= 'login.login')}}" method="post">
+        <div class="text">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class=flashes style="margin: 0 auto; width: 90%;">
+                    {% for message in messages %}
+                        <p style="font-size: 0.75em; color: red; text-align: center; font-weight: 600;">{{ message }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+            <h3>Bem-vindo!</h3>
+            <p>Faça login e organize suas tarefas</p>
+        </div>
+        <fieldset>
+            <label for="email">E-mail:</label>
+            <input type="email" class="basic-input" name="email">
+
+            <label for="password">Senha:</label>
+            <input type="password" class="basic-input" name="password">
+
+            <input type="submit" class="pattern-button" value="Entrar">
+        </fieldset>
+    </form>
+    <form id="register-form" action="{{url_for(endpoint= 'login.register')}}" method="post">
+        <fieldset>
+            <label for="register-email">E-mail:</label>
+            <input type="email" class="basic-input" name="register-email" required>
+
+            <label for="register-name">Nome:</label>
+            <input type="text" class="basic-input" name="register-name" required>
+
+            <label for="register-password">Senha:</label>
+            <input type="password" class="basic-input" name="register-password" required>
+
+            <label for="register-confirmation-password">Confirme a Senha:</label>
+            <input type="password" class="basic-input" name="register-confirmation-password" required>
+
+            <input type="submit" class="pattern-button" value="Cadastrar">
+        </fieldset>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{url_for('static', filename='js/login_home.js')}}"></script>
+{% endblock %}

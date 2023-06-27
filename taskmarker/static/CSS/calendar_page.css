@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+body{
+    height: 100vh;
+    width: 100%;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+#welcome-header{
+    background-color: black;
+    color: white;
+    overflow: hidden;
+}
+
+#welcome-header h1{
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.75rem;
+    padding-top: 15px;
+    padding-left: 15px;
+    margin-bottom: 1.8%;
+}
+
+#welcome-header a{
+    text-decoration: none;
+    float: right;
+    padding: 10px 15px 10px 15px;
+    height: 100%;
+    font-size: 1.125rem;
+    color: white;
+}
+
+#welcome-header a:hover{
+    color: black;
+    background-color: white;
+    transition: 1s;
+}
+
+#calendar-box{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#calendar-box #calendar{
+    max-height: 80vh;   
+}
+
+#calendar thead{
+    background-color: rgba(37, 36, 36, 0.396);
+}
+
+.fc-scrollgrid-sync-inner{
+    padding: 0.9%;
+}
+
+.fc-scrollgrid-sync-inner a{
+    color: white;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.fc-daygrid-day-frame a{
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+}
