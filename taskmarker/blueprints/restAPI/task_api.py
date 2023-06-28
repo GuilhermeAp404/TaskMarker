@@ -10,7 +10,7 @@ from flask_login import current_user, login_required
 class TasksApi(Resource):
     @login_required
     def get(self):
-        listaTask=[]
+        task_list=[]
         if not current_user.is_authenticated:
             return {'Erro':'usuario não autenticado'}, 401
         
@@ -26,8 +26,8 @@ class TasksApi(Resource):
                     'end': str(task.end),
                     'description': task.description
                 }
-                listaTask.append(task)
-            return listaTask, 201
+                task_list.append(task)
+            return {'tasks':task_list}, 201
 
         except Exception as e:
             return {'Erro':'Não foi possivel retornar os dados'}

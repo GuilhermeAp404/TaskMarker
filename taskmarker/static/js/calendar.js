@@ -93,24 +93,19 @@ const createModal = (modalType) => {
   }
 }
 
-const returnTaskList = () => {
-  return $.ajax({
-    type: 'GET',
-    url: 'http://localhost:5000/api/tasks',
-    dataType: 'json',
-    success: function () {
-      console.log('json recebido');
-    }
-  }).done(function (data) {
-    const list = []
-    data.forEach(element => {
-      list.push(element);
-    });
-    return list;
+async function returnTaskList() {
+  const response = await fetch('http://localhost:5000/api/tasks')
+
+  const data = await response.json()
+  
+  let taskList =[]
+
+  await data.tasks.map((element)=>{
+    taskList.push(element)
   })
-    .fail(function () {
-      console.error(`Error fetching data`);
-    });
+
+  return taskList
+
 };
 
 const viewType = () => {
